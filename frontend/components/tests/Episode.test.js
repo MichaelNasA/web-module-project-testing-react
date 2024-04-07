@@ -26,16 +26,19 @@ their own search, and meet a mysterious girl in the forest.",
 describe('Episode component', () => {
   test("renders without error", () => {
     // 👉 TASK: render the component passing episode data
-
+      render(<Episode episode = {exampleEpisodeData}/>)
     // 👉 TASK: print the simulated DOM using screen.debug
-
+    screen.debug
   })
   test("renders texts and alt texts correctly", () => {
     // 👉 TASK: render the component passing episode data and getting the rerender utility
+      const { render } = render(<Episode episode={exampleEpisodeData}/>)
 
     // 👉 TASK: check that the summary renders to the DOM
+      screen.getByText(exampleEpisodeData.summary)
 
     // 👉 TASK: check that the alt text "episode image" is present
+      screen.getByAltText('episode image')
 
     // 👉 TASK: rerender the component passing episode data lacking an image
     // ❗ Study the Episode component to understand what happens in this case
